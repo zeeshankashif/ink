@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-amoled-black: #000000;
+  --color-platinum-white: #F8F9FA;
+  --color-neon-purple: #A855F7;
+  --color-amethyst-gray: #E2E0E6;
+  --color-deep-ink: #0A0A0C;
+}
+
+/* Base resets & styles for smooth high-end scrolling */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-amoled-black);
+  scrollbar-width: thin;
+}
+
+::selection {
+  background-color: var(--color-neon-purple);
+  color: var(--color-amoled-black);
+}
+
+/* Hide Canvas outlines and set pointer behaviors */
+canvas {
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}

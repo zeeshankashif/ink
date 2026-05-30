@@ -1,0 +1,6 @@
+{
+  "name": "Liquid Ink Portal",
+  "description": "An interactive, premium high-end WebGL landing experience utilizing custom liquid metal shaders, responsive scroll physics, and a dual-state color and audio inversion portal.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
