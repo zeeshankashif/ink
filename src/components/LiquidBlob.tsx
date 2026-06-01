@@ -146,24 +146,41 @@ const LiquidBlobMesh: React.FC<BlobProps> = ({ scrollProgress, isInverted }) => 
       meshRef.current.rotation.y = elapsed * 0.15;
       meshRef.current.rotation.x = elapsed * 0.08;
 
+      // Calculate state viewport boundaries for seamless mobile adaptation
+      const aspect = state.viewport.width / state.viewport.height;
+      const isMobile = aspect < 0.85; // Portrait screen orientation
+
       // Calculate exponential scale factor
       // 1. Pre-Breach Phase (0.00 to 0.55): Blob size grows slowly, then shoots exponentially to fill screen.
       // 2. Post-Breach Showcase (0.56 to 1.00): Recedes and anchors dynamically to support the typography grid.
       let targetScale = 1.0;
       let targetYOffset = 0.0;
+      let targetXOffset = 0.0;
 
       if (scrollProgress <= 0.55) {
         const breachProgress = Math.max(0, (scrollProgress - 0.2) / 0.35); // normalize 0.20-0.55
-        const expScale = Math.pow(breachProgress, 4.5) * 44.0; // Exponential speed-up
-        targetScale = 1.0 + expScale;
+        // Boost exponential speed-up on mobile portrait so it completely fills the narrower screen width during the transition moment
+        const scaleMultiplier = isMobile ? 68.0 : 44.0;
+        const expScale = Math.pow(breachProgress, 4.5) * scaleMultiplier;
+        targetScale = (isMobile ? 0.42 : 1.0) + expScale;
       } else {
         // Post portal Showroom background: float into background gracefully
         const exitProgress = Math.min(1.0, (scrollProgress - 0.55) / 0.45); // normalize 0.55-1.0
-        // Scale settles down to be a beautiful ambient moving graphic in the middle right
-        targetScale = THREE.MathUtils.lerp(45.0, 1.25, Math.pow(exitProgress, 0.5));
         
-        // Push the organic background shape slightly to the right to frame portfolio text
-        targetYOffset = THREE.MathUtils.lerp(0.0, 0.4, exitProgress);
+        // On mobile, let the ambient element be significantly smaller so it sits harmoniously behind the layout cards
+        const baseEndScale = isMobile ? 0.35 : 1.25;
+        const startScale = isMobile ? 68.0 : 45.0;
+        targetScale = THREE.MathUtils.lerp(startScale, baseEndScale, Math.pow(exitProgress, 0.5));
+        
+        // On desktop, push slightly to the right to frame portfolio text.
+        // On mobile portrait, center or push slightly down.
+        targetYOffset = isMobile 
+          ? THREE.MathUtils.lerp(0.0, -0.15, exitProgress)
+          : THREE.MathUtils.lerp(0.0, 0.4, exitProgress);
+          
+        targetXOffset = isMobile
+          ? 0.0
+          : THREE.MathUtils.lerp(0.0, 0.45, exitProgress);
       }
 
       meshRef.current.scale.setScalar(
@@ -173,6 +190,12 @@ const LiquidBlobMesh: React.FC<BlobProps> = ({ scrollProgress, isInverted }) => 
       meshRef.current.position.y = THREE.MathUtils.lerp(
         meshRef.current.position.y,
         targetYOffset,
+        0.08
+      );
+
+      meshRef.current.position.x = THREE.MathUtils.lerp(
+        meshRef.current.position.x,
+        targetXOffset,
         0.08
       );
     }

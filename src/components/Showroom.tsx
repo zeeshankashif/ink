@@ -80,22 +80,22 @@ export const Showroom: React.FC<ShowroomProps> = ({ scrollProgress, isInverted }
             01 // SYSTEM_CORRIDOR
           </div>
           
-          <h1 className="font-display font-black text-6xl sm:text-7xl md:text-[7rem] leading-[0.85] tracking-tighter text-purple-500 uppercase select-none">
+          <h1 className="font-display font-black text-5xl sm:text-7xl md:text-[7rem] leading-[0.85] tracking-tighter text-purple-500 uppercase select-none">
             Liquid<br/>
             <span className="text-transparent" style={{ WebkitTextStroke: "1.5px #A855F7" }}>Ink</span>
           </h1>
           
-          <p className="font-display font-black text-3xl sm:text-4xl md:text-[3.5rem] tracking-[0.2em] text-transparent uppercase select-none mt-2 leading-none" style={{ WebkitTextStroke: "1.5px #A855F7" }}>
+          <p className="font-display font-black text-2xl sm:text-4xl md:text-[3.5rem] tracking-[0.2em] text-transparent uppercase select-none mt-2 leading-none" style={{ WebkitTextStroke: "1.5px #A855F7" }}>
             ZEXAN
           </p>
 
-          <p className="mt-8 text-xs tracking-[0.25em] text-purple-300/60 uppercase max-w-[280px] leading-relaxed select-none">
+          <p className="mt-6 sm:mt-8 text-[11px] sm:text-xs tracking-[0.25em] text-purple-300/60 uppercase max-w-[240px] sm:max-w-[280px] leading-relaxed select-none">
             Deep hydro-acoustic immersion within the amoled void.
           </p>
 
-          <div className="mt-10 flex items-center gap-4">
-            <div className="w-12 h-px bg-purple-500/50"></div>
-            <span className="text-[10px] tracking-widest uppercase text-purple-400/80 font-mono font-bold">
+          <div className="mt-8 sm:mt-10 flex items-center gap-4">
+            <div className="w-10 sm:w-12 h-px bg-purple-500/50"></div>
+            <span className="text-[9px] sm:text-[10px] tracking-widest uppercase text-purple-400/80 font-mono font-bold">
               Muffled Drone Active
             </span>
           </div>
@@ -118,13 +118,13 @@ export const Showroom: React.FC<ShowroomProps> = ({ scrollProgress, isInverted }
 
       {/* 3. Inverted Post-Portal Internal Showroom (Phase 3) */}
       <div 
-        className="relative w-full max-w-7xl mx-auto px-6 pt-36 pb-32 z-30 pointer-events-auto"
+        className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 pt-24 sm:pt-36 pb-32 z-30 pointer-events-auto"
         style={showroomStyle}
       >
         {/* Gallery Header featuring Bold Typography HUD & Elements */}
-        <div className="mb-20 max-w-4xl relative">
-          {/* Glass Chime HUD Overlay (Top Right of Showroom Frame) */}
-          <div className="absolute top-0 right-0 md:flex hidden items-center gap-6 select-none bg-[#F8F9FA]/60 backdrop-blur-md p-4 rounded-xl border border-black/10">
+        <div className="mb-12 sm:mb-20 max-w-4xl relative">
+          {/* Glass Chime HUD Overlay (Top Right of Showroom Frame) - hidden on narrow screens to prevent overlap */}
+          <div className="absolute top-0 right-0 lg:flex hidden items-center gap-6 select-none bg-[#F8F9FA]/60 backdrop-blur-md p-4 rounded-xl border border-black/10">
             <div className="text-right">
               <div className="text-[10px] tracking-widest font-bold uppercase text-[#0A0A0C]">Acoustic State</div>
               <div className="text-xs text-purple-600 font-mono font-bold">CRYSTAL_CHIME.WAV</div>
@@ -134,19 +134,19 @@ export const Showroom: React.FC<ShowroomProps> = ({ scrollProgress, isInverted }
             </div>
           </div>
 
-          <div className="flex items-center gap-2 mb-6">
-            <Terminal className="w-4 h-4 text-deep-ink" />
-            <span className="font-mono text-[10px] tracking-widest text-[#66666e] uppercase font-black">
+          <div className="flex items-center gap-2 mb-4 sm:mb-6">
+            <Terminal className="w-4 h-4 text-deep-ink shrink-0" />
+            <span className="font-mono text-[9px] sm:text-[10px] tracking-widest text-[#66666e] uppercase font-black">
               03 // SHOWROOM_ACCESS // ACTIVE
             </span>
           </div>
           
-          <h2 className="font-display text-5xl sm:text-7xl md:text-[7.5rem] font-black tracking-tighter leading-[0.9] mb-12 uppercase text-deep-ink text-left">
+          <h2 className="font-display text-4xl sm:text-7xl md:text-[7.5rem] font-black tracking-tighter leading-[0.9] mb-8 sm:mb-12 uppercase text-deep-ink text-left select-none">
             BREACH<br/>
-            <span className="text-transparent" style={{ WebkitTextStroke: "2.5px #0A0A0C" }}>SUCCESS</span>
+            <span className="text-transparent" style={{ WebkitTextStroke: "1.5px #0A0A0C" }}>SUCCESS</span>
           </h2>
           
-          <p className="font-sans text-base sm:text-lg text-[#44444a] leading-relaxed max-w-2xl">
+          <p className="font-sans text-sm sm:text-base md:text-lg text-[#44444a] leading-relaxed max-w-2xl">
             You have successfully breached the surface boundary. The liquid chrome mirror is now a fully illuminated platinum white chamber containing three premium multi-threaded micro-environments. Explore the active system modules below.
           </p>
         </div>

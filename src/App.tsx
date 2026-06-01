@@ -133,49 +133,49 @@ export default function App() {
       {/* 1. System Glassmorphic Permission Doorway Overlay */}
       <div 
         ref={overlayRef}
-        className="fixed inset-0 flex flex-col items-center justify-center bg-[#000000]/95 backdrop-blur-xl z-[999] px-6 text-center select-none"
+        className="fixed inset-0 flex flex-col items-center justify-center bg-[#000000]/95 backdrop-blur-xl z-[999] px-4 md:px-6 text-center select-none overflow-y-auto py-8"
       >
-        <div className="absolute top-12 left-12 flex items-center gap-2">
+        <div className="absolute top-6 left-6 md:top-12 md:left-12 flex items-center gap-2">
           <Terminal className="w-5 h-5 text-purple-500 animate-pulse" />
-          <span className="font-mono text-xs tracking-wider text-purple-400 font-semibold">
+          <span className="font-mono text-[10px] md:text-xs tracking-wider text-purple-400 font-semibold">
             SYS PORTAL CORE // PORT 3000
           </span>
         </div>
 
-        <div className="max-w-2xl flex flex-col items-center">
-          <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-purple-600 to-indigo-600 flex items-center justify-center shadow-[0_0_50px_rgba(168,85,247,0.35)] md:mb-10 mb-8 animate-bounce mt-4">
-            <Volume2 className="w-7 h-7 text-white" />
+        <div className="max-w-2xl flex flex-col items-center my-auto">
+          <div className="w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-gradient-to-tr from-purple-600 to-indigo-600 flex items-center justify-center shadow-[0_0_50px_rgba(168,85,247,0.35)] mb-6 md:mb-10 animate-bounce mt-8 md:mt-4">
+            <Volume2 className="w-6 h-6 md:w-7 md:h-7 text-white" />
           </div>
 
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight text-white mb-6 leading-tight">
+          <h2 className="font-display text-2xl sm:text-4xl md:text-5xl font-medium tracking-tight text-white mb-4 md:mb-6 leading-tight">
             The <span className="text-neon-purple font-semibold">Liquid Ink</span> Portal
           </h2>
 
-          <p className="font-sans text-sm md:text-base text-gray-400 leading-relaxed max-w-lg mb-10">
+          <p className="font-sans text-xs md:text-sm lg:text-base text-gray-400 leading-relaxed max-w-lg mb-8 md:mb-10">
             Welcome to an elite spatial interactive system sandbox environment. We synthesize high-fidelity physical glass modeling and hydro-acoustic drone frequencies directly inside your Web Audio namespace.
           </p>
 
           <button
             onClick={handleUnlockAudio}
             id="enter-system-btn"
-            className="group relative flex items-center gap-3 bg-neon-purple hover:bg-purple-600 text-white font-mono text-xs tracking-widest uppercase font-semibold px-8 py-4.5 rounded-full shadow-[0_0_30px_rgba(168,85,247,0.4)] hover:shadow-[0_0_45px_rgba(168,85,247,0.65)] transform active:scale-95 transition-all duration-300 cursor-pointer"
+            className="group relative flex items-center gap-3 bg-neon-purple hover:bg-purple-600 text-white font-mono text-xs tracking-widest uppercase font-semibold px-6 py-3.5 md:px-8 md:py-4 rounded-full shadow-[0_0_30px_rgba(168,85,247,0.4)] hover:shadow-[0_0_45px_rgba(168,85,247,0.65)] transform active:scale-95 transition-all duration-300 cursor-pointer"
           >
             <Play className="w-4 h-4 fill-white text-white group-hover:scale-110 transition-transform" />
             ENTER SYSTEM CORRIDOR
           </button>
         </div>
 
-        <div className="absolute bottom-12 text-center">
-          <span className="font-mono text-[10px] text-zinc-600 tracking-wider">
+        <div className="absolute bottom-6 md:bottom-12 text-center px-4">
+          <span className="font-mono text-[9px] text-zinc-600 tracking-wider">
             CREATIVE WEBGL PIPELINE • REDISCOVER SYNTHESIS MODELING V2.6
           </span>
         </div>
       </div>
 
-      {/* VERTICAL RAIL TEXT FROM BOLD TYPOGRAPHY DESIGN THEME */}
+      {/* VERTICAL RAIL TEXT FROM BOLD TYPOGRAPHY DESIGN THEME - HIDDEN ON PORTRAIT OR MOBILE SCREEN WIDTHS */}
       {isUnlocked && (
         <div 
-          className={`fixed left-4 md:left-8 top-1/2 -translate-y-1/2 [writing-mode:vertical-rl] rotate-180 flex gap-8 text-[9px] tracking-[0.45em] font-mono font-bold uppercase transition-colors duration-500 ease-out select-none z-35 ${
+          className={`fixed left-4 md:left-8 top-1/2 -translate-y-1/2 [writing-mode:vertical-rl] rotate-180 hidden md:flex gap-8 text-[9px] tracking-[0.45em] font-mono font-bold uppercase transition-colors duration-500 ease-out select-none z-35 ${
             isInverted ? "text-[#0A0A0C]/40" : "text-purple-400/50"
           }`}
         >
